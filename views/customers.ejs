@@ -1,0 +1,16 @@
+<html ng-app="store_app">
+<head>
+	<title></title>
+	<title>Mongoose FTW!!</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+	<script type="text/javascript" src='/javascripts/angular_stuff.js'></script>
+</head>
+<body ng-controller="CustomerController">
+	<p>Show me the customers!</p>
+	<h2 ng-repeat="customer in customers">Name: {{customer.name}}</h2>
+	<h3>Add new customer</h3>
+	Name: <input type="text" ng-model="newCustomer.name"/>
+	<input type="submit" value="Add Customer" ng-click="createCustomer()"/>
+</body>
+</html>

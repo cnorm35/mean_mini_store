@@ -1,0 +1,22 @@
+<!doctype>
+<html>
+<head>
+	<title>Angular Example</title>
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js'></script>
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-route.min.js'></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src='/javascripts/angular_stuff.js'></script>
+
+<body>
+	<div class="container" ng-app='store_app'>
+		<div class="row">
+			<a href="#/">Home</a> | <a href="#/orders">Orders</a> | <a href="#/Customers">Customers</a>
+		</div>
+
+		<div ng-view="">
+		</div>
+	</div>
+</body>
