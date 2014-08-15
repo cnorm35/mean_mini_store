@@ -42,6 +42,11 @@ app.factory('CustomerFactory', function($http){
 		})
 	}
 
+	// factory.deleteCustomer = function($index){
+	// 	console.log($index, 'from factory');
+	// 	$http.delete('/api/customers/' + $index)
+	// }
+
 
 
 	return factory;
@@ -88,10 +93,15 @@ app.controller('CustomerController', function($scope, CustomerFactory){
 	CustomerFactory.getCustomers(function(data){
 		$scope.customers = data;
 	})
+
+	$scope.deleteCustomer = function($index, $scope){
+		CustomerFactory.deleteCustomer($index);
+		console.log($scope.id);
+	}
 });
 
 
-app.controller('OrderController', function($scope, CustomerFactory, OrderFactory){
+app.controller('OrderController', function($scope, $interval, CustomerFactory, OrderFactory){
 	$scope.orders = [];
 	CustomerFactory.getCustomers(function(data){
 		$scope.customers = data;
@@ -104,19 +114,34 @@ app.controller('OrderController', function($scope, CustomerFactory, OrderFactory
 	$scope.addOrder = function(){
 		OrderFactory.addOrder($scope.newOrder, function(order){
 			$scope.orders.push(order);
-			console.log(order)
+			console.log($scope.orders, 'first one')
+			
+			// console.log(order)
 		})
 
+
+
+		//added the block below
+		// OrderFactory.getOrders(function(data){
+		// 	$scope.orders = data;
+		// 	console.log($scope.orders)
+		// })
+
+		//just moved.
+		// 	OrderFactory.getOrders(function(data){
+		// 	$scope.orders = data;
+		// 	console.log($scope.orders, 'second one')
+		// });
 	}
-
-
 
 })
 
 
 
 
-
+app.controller('UpdateController', function($scope, CustomerFactory, OrderFactory){
+		
+});
 
 
 

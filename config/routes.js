@@ -31,7 +31,12 @@ module.exports = function Routes(app){
 		Order.find({}, function(errors, results){
 			res.json(results);
 		})
-	})
+	});
+
+	// app.delete('/api/customers/:id', function(req, res){
+	// 	console.log(req.params.id, 'from app.delete');
+	// 	Customer.remove({id: req.params.id}, 1);
+	// })
 
 
 
