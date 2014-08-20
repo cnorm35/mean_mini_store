@@ -37,6 +37,10 @@ module.exports = function Routes(app){
 	// 	console.log(req.params.id, 'from app.delete');
 	// 	Customer.remove({id: req.params.id}, 1);
 	// })
+	app.post('/api/customers/delete', function(req, res){
+		var customer = req.body
+		console.log(customer);
+	})
 
 
 

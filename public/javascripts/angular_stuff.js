@@ -47,6 +47,14 @@ app.factory('CustomerFactory', function($http){
 	// 	$http.delete('/api/customers/' + $index)
 	// }
 
+	factory.deleteCustomer = function(id){
+		$http.post('/api/customers/delete', id).success(function(data){
+			console.log(id);
+		}).error(function(data){
+			console.log(data.error.message, data.error.stack);
+		});
+	}
+
 
 
 	return factory;
@@ -92,12 +100,13 @@ app.controller('CustomerController', function($scope, CustomerFactory){
 
 	CustomerFactory.getCustomers(function(data){
 		$scope.customers = data;
+		console.log($scope.customers);
 	})
 
-	$scope.deleteCustomer = function($index, $scope){
-		CustomerFactory.deleteCustomer($index);
-		console.log($scope.id);
-	}
+	$scope.deleteCustomer = function(id){
+		CustomerFactory.deleteCustomer(id);
+		console.log(id, 'delete cust controller');
+	}	
 });
 
 
